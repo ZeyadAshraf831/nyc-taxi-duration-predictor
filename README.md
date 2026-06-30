@@ -30,7 +30,7 @@ Python · PyTorch · Flask · scikit-learn · pandas · NumPy
 ##  Results
 | Metric | Score |
 |--------|-------|
-| Validation R² | ~0.75+ |
+| Validation R² | ~0.79+ |
 | Validation RMSE | seconds-level error |
 
 *(See `reports/` folder for residual analysis and feature importance charts)*
