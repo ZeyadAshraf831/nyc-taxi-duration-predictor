@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYC Taxi Duration Predictor</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>NYC Taxi Trip Duration Predictor</h1>
+      <p>Estimate trip duration across New York City using an interactive map and a deep learning model.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel map-panel">
+        <div class="panel-header">
+          <h2>Trip Route</h2>
+          <p>Select pickup and dropoff locations on the map.</p>
+        </div>
+
+        <div class="mode-buttons">
+          <button id="pickup-mode-btn" class="mode-btn active" type="button">Set Pickup Location</button>
+          <button id="dropoff-mode-btn" class="mode-btn" type="button">Set Dropoff Location</button>
+        </div>
+
+        <div id="map-hint" class="map-hint">Click on the map to set your pickup location.</div>
+        <div id="map"></div>
+
+        <div class="coords-grid">
+          <div id="pickup-status" class="status-card warning">Pickup: Not selected</div>
+          <div id="dropoff-status" class="status-card warning">Dropoff: Not selected</div>
+        </div>
+      </section>
+
+      <section class="panel form-panel">
+        <div class="panel-header">
+          <h2>Trip Details</h2>
+          <p>Configure trip settings, then run a prediction.</p>
+        </div>
+
+        <form id="trip-form" class="trip-form">
+          <label>
+            Taxi Vendor
+            <select id="vendor-id" name="vendor_id">
+              <option value="1">Vendor 1</option>
+              <option value="2">Vendor 2</option>
+            </select>
+          </label>
+
+          <label>
+            Passenger Count
+            <input id="passenger-count" name="passenger_count" type="range" min="1" max="6" value="1">
+            <span id="passenger-value" class="range-value">1</span>
+          </label>
+
+          <label>
+            Pickup Date
+            <input id="pickup-date" name="pickup_date" type="date">
+          </label>
+
+          <div class="time-row">
+            <label>
+              Hour
+              <select id="pickup-hour" name="pickup_hour"></select>
+            </label>
+            <label>
+              Minute
+              <select id="pickup-minute" name="pickup_minute"></select>
+            </label>
+          </div>
+
+          <button id="predict-btn" class="predict-btn" type="submit">Predict Trip Duration</button>
+        </form>
+
+        <div id="result" class="result hidden">
+          <div id="result-message" class="result-message"></div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-label">Distance</span>
+              <span id="metric-distance" class="metric-value">-</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Rush Hour</span>
+              <span id="metric-rush" class="metric-value">-</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Weekend</span>
+              <span id="metric-weekend" class="metric-value">-</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    window.APP_CONFIG = {
+      mapLat: {{ map_lat }},
+      mapLng: {{ map_lng }},
+      mapZoom: {{ map_zoom }},
+    };
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
