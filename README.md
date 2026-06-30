@@ -9,7 +9,7 @@ Enter a pickup point, a dropoff point, and trip details on a map, and the model 
 - **Source:** [NYC Taxi Trip Duration (Kaggle)](https://www.kaggle.com/c/nyc-taxi-trip-duration)
 - **Size:** ~1.4M trips (training set)
 
-## 🔧 Tech Stack
+##  Tech Stack
 Python · PyTorch · Flask · scikit-learn · pandas · NumPy
 
 ##  Model Architecture
