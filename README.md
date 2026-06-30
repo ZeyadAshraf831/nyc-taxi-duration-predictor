@@ -38,26 +38,26 @@ Python · PyTorch · Flask · scikit-learn · pandas · NumPy
 ##  Project Structure
 nyc-taxi-duration-predictor/
 
-├── taxi_predictor/        # Core package (model, features, preprocessing)
+├── taxi_predictor/        Core package (model, features, preprocessing)
 
-├── templates/              # Web app HTML
+├── templates/               Web app HTML
 
-├── static/                  # CSS/JS
+├── static/                   CSS/JS
 
-├── analyze.py             # Feature selection & residual analysis
+├── analyze.py              Feature selection & residual analysis
 
-├── train.py                  # Model training
+├── train.py                   Model training
 
-├── evaluate.py             # Model evaluation & Kaggle submission
+├── evaluate.py              Model evaluation & Kaggle submission
 
-├── app.py                    # Flask web application
+├── app.py                    Flask web application
 
 └── requirements.txt
 
 ## Run Locally
 ```bash
 pip install -r requirements.txt
-python train.py      # train the model
-python evaluate.py   # evaluate + generate predictions
-python app.py         # run the web app
+python train.py       train the model
+python evaluate.py    evaluate + generate predictions
+python app.py         run the web app
 ```
