@@ -36,3 +36,28 @@ Python · PyTorch · Flask · scikit-learn · pandas · NumPy
 *(See `reports/` folder for residual analysis and feature importance charts)*
 
 ##  Project Structure
+nyc-taxi-duration-predictor/
+
+├── taxi_predictor/        # Core package (model, features, preprocessing)
+
+├── templates/              # Web app HTML
+
+├── static/                  # CSS/JS
+
+├── analyze.py             # Feature selection & residual analysis
+
+├── train.py                  # Model training
+
+├── evaluate.py             # Model evaluation & Kaggle submission
+
+├── app.py                    # Flask web application
+
+└── requirements.txt
+
+## Run Locally
+```bash
+pip install -r requirements.txt
+python train.py      # train the model
+python evaluate.py   # evaluate + generate predictions
+python app.py         # run the web app
+```
