@@ -1,4 +1,4 @@
-# NYC Taxi Trip Duration Predictor 🚕
+# NYC Taxi Trip Duration Predictor 
 
 A Deep Neural Network that predicts taxi trip duration in New York City using pickup/dropoff coordinates, time, and trip metadata — deployed as a live Flask web app with an interactive map.
 
